@@ -1,0 +1,25 @@
+
+<div class="wrapper fadeInDown">
+ 
+  <h2 class="fw-bold pb-3">Log In</h2>
+  <div id="formContent">
+    <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+      <input type="email" id="exampleInputEmail1"  class="fadeIn second" placeholder="Enter Email"
+                  formControlName="Email" aria-describedby="emailHelp"
+                  oninput="this.value = this.value.replace(/^\s+/g, '')" oninput="this.value = this.value.toLowerCase()"
+                  maxlength="100">
+                <span class="text-danger" *ngIf="submitted && loginFormControl['Email'].errors?.['required']">
+                 Email id is required</span>
+                <span class="text-danger" *ngIf="submitted && loginFormControl['Email'].errors?.['pattern']">
+                  Email id is not valid</span>
+      <input placeholder="Enter Password" class="fadeIn third" oninput="this.value = this.value.replace(/^\s+/g, '')"
+      [type]="isShowPassword ? 'text' : 'password'" formControlName="password" class="form-control"
+      id="inputPassword2" maxlength="100" />
+  <span class="text-danger" *ngIf="submitted && loginFormControl['password'].errors?.['required']">
+    Password required</span>
+      <input type="submit" class="fadeIn fourth" value="Log In">
+    </form>
+    <a href="/" style="font-size: 25px;">Open Calculator</a>
+    
+  </div>
+</div>

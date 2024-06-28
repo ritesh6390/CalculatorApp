@@ -1,0 +1,35 @@
+
+
+<div  >
+  <h3>Calculated History</h3>
+ 
+<table  
+>
+  <thead>
+    <tr>
+      <th>Number 1</th>
+      <th>Operator</th>
+      <th>Number 2</th>
+      <th>Total</th>
+      <th>Date (UTC)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let post of HistoryList">
+      <td style="text-align: center;">{{ post.firstValue }}</td>
+      <td style="text-align: center;">{{ post.operator }}</td>
+      <td style="text-align: center;">{{ post.secondValue }}</td>
+      <td style="text-align: center;">{{ post.calculateValue }}</td>
+      <td style="text-align: center;">{{ post.createdDate | date: 'dd/MM/yyyy hh:mm a' }}</td>
+     
+    </tr>
+  </tbody>
+  <tbody *ngIf="HistoryList?.length == 0">
+    <tr class="text-center">
+        <td colspan="6" class="no-data-available">No data!</td>
+    </tr>
+</tbody>
+</table> 
+</div> <div style="margin-top: 100px;">
+  <a href="/#" style="font-size: 25px;"  (click)="Logout()">Logout</a>
+</div>
